@@ -3,7 +3,7 @@ import os.path
 from werkzeug.utils import secure_filename
 import predict_1_file_or_folder as predict
 
-UPLOAD_FOLDER = "E:/Python/TextClassifier/"
+UPLOAD_FOLDER = "E:/TextClassifier/predict"
 
 app = Flask(__name__)
 app.secret_key = "hello"
