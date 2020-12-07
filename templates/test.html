@@ -9,9 +9,15 @@
 			{% endfor %}
 		{% endif %}
 	{% endwith %}
-	<form action="/test" method="post" enctype="multipart/form-data">
-		<p>Please choose a file or folder:</p>
+	<form action="/file" method="post" enctype="multipart/form-data">
+		<p>Please choose a file</p>
 		<input type = "file" name = "file" />
+		<p><input type="submit" value="submit"/></p>
+	</form>
+
+	<form action="/text" method="post" enctype="multipart/form-data">
+		<p>Please enter a text</p>
+		<textarea  type = "text" name = "text" rows="5" cols="100"></textarea>
 		<p><input type="submit" value="submit"/></p>
 	</form>
 {% endblock %}
