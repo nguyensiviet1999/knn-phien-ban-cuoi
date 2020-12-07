@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Predict file text{% endblock %}
+
+{% block content %}
+	{% with messages = get_flashed_messages() %}
+		{% if messages %}
+			{% for msg in messages %}
+				<div class="alert alert-success">Predict: {{msg}}</div>
+			{% endfor %}
+		{% endif %}
+	{% endwith %}
+	<form action="/test" method="post" enctype="multipart/form-data">
+		<p>Please choose a file or folder:</p>
+		<input type = "file" name = "file" />
+		<p><input type="submit" value="submit"/></p>
+	</form>
+{% endblock %}
