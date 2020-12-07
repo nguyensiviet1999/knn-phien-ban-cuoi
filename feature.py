@@ -29,7 +29,8 @@ def computeTF(wordDict, bagOfWords):
     for word, count in wordDict.items():
         tfDict[word] = count / float(bagOfWordsCount)
     return tfDict
-X_data_tf = tfTranform(X_data)
-X_test_tf = tfTranform(X_test)
-pickle.dump(X_test_tf, open('X_data_tf.pkl', 'wb'))
-pickle.dump(X_test_tf, open('X_test_tf.pkl', 'wb'))
+def tranform_to_build_model(X_data,X_test):
+    X_data_tf = tfTranform(X_data)
+    X_test_tf = tfTranform(X_test)
+    pickle.dump(X_test_tf, open('X_data_tf.pkl', 'wb'))
+    pickle.dump(X_test_tf, open('X_test_tf.pkl', 'wb'))
