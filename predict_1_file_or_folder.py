@@ -73,6 +73,6 @@ def predict_folder(folder_path):
 	print(accuracy_metric(y_test,predict_test))
 	return predict_test
 # print(predict_1_file('new test - Copy (3)\Duong vao WTO\DVW_TN_T_ (188).txt'))
-print(predict_by_text('Con chó'))
+# print(predict_by_text('Con chó'))
 
 	
