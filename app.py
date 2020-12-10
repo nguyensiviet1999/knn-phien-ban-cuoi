@@ -2,14 +2,19 @@ from flask import Flask, redirect, url_for, render_template, request, session, f
 import os.path
 from werkzeug.utils import secure_filename
 import predict_1_file_or_folder as predict
+from flask_cors import CORS, cross_origin
+
 
 UPLOAD_FOLDER = "/home/thuongprovip/Downloads"
 
 app = Flask(__name__)
 app.secret_key = "hello"
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+cors = CORS(app)
+app.config['CORS_HEADERS'] = 'Content-Type'
 
 @app.route("/")
+@cross_origin()
 def home():
     return render_template("test.html")
 
