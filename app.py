@@ -3,7 +3,7 @@ import os.path
 from werkzeug.utils import secure_filename
 import predict_1_file_or_folder as predict
 
-UPLOAD_FOLDER = "/home"
+UPLOAD_FOLDER = "/home/thuongprovip/Downloads"
 
 app = Flask(__name__)
 app.secret_key = "hello"
@@ -51,6 +51,21 @@ def textjson():
         return jsonify({"result": result})
     else:
         return render_template("test.html")
+
+@app.route("/filejson", methods=["POST", "GET"])
+def filejson():
+    if request.method == "POST":
+        text = request.files['file']
+        if text.filename:
+            filename = secure_filename(text.filename)
+            text.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            text_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+            result = predict.predict_1_file(text_path)
+            
+            return jsonify({"result": result})
+    else:
+        return render_template("test.html")
+        # flash("Predict: ", result)
 
 if __name__ == '__main__':
     app.run(debug=True)

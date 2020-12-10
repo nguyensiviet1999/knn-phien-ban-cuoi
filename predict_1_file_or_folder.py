@@ -42,7 +42,7 @@ def predict_by_text(text):
 	return predict_classification(X_data_tf,test_data_tf[0],5)
 def predict_1_file(file_path):
 	test = []
-	with open(file_path, 'r', encoding="utf-16") as f:
+	with open(file_path, 'r', encoding="utf-8") as f:
 		lines = f.readlines()
 		lines = ' '.join(lines)
 		lines = lines.lower()
