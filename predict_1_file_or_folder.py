@@ -33,6 +33,7 @@ def get_info_test_data():
 def predict_by_text(text):
 	lines = text
 	lines = ' '.join(lines)
+	lines = lines.lower()
 	lines = re.sub(r"[^\w\d\s]"," ",lines,flags=re.UNICODE)
 	lines = re.sub("[0-9]"," ",lines,flags=re.UNICODE)
 	lines = lines.split()
@@ -44,6 +45,7 @@ def predict_1_file(file_path):
 	with open(file_path, 'r', encoding="utf-16") as f:
 		lines = f.readlines()
 		lines = ' '.join(lines)
+		lines = lines.lower()
 		lines = re.sub(r"[^\w\d\s]"," ",lines,flags=re.UNICODE)
 		lines = re.sub("[0-9]"," ",lines,flags=re.UNICODE)
 		lines = lines.split()
@@ -71,6 +73,6 @@ def predict_folder(folder_path):
 	print(accuracy_metric(y_test,predict_test))
 	return predict_test
 # print(predict_1_file('new test - Copy (3)\Duong vao WTO\DVW_TN_T_ (188).txt'))
-# print(predict_by_text('túi sách Chanel đang được sale với giá hot những ngày cận tết'))
+# print(predict_by_text('Con chó'))
 
 	
