@@ -22,9 +22,8 @@ def file():
             text.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             text_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
             result = predict.predict_1_file(text_path)
-            # flash(result)
-            # return redirect(url_for("home"))
-            return jsonify(result)
+            flash(result)
+            return redirect(url_for("home"))
     else:
         return render_template("test.html")
         # flash("Predict: ", result)
@@ -33,12 +32,9 @@ def file():
 def text():
     if request.method == "POST":
         text = request.form['text']
-        #text = request.json["text"]
-        print(text)
         result = predict.predict_by_text(text)
-        # flash(result)
-        # return redirect(url_for("home"))
-        return jsonify(result)
+        flash(result)
+        return redirect(url_for("home"))
     else:
         return render_template("test.html")
 
