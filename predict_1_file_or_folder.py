@@ -32,17 +32,16 @@ def get_info_test_data():
 	}
 def predict_by_text(text):
 	lines = text
-	lines = ' '.join(lines)
 	lines = lines.lower()
 	lines = re.sub(r"[^\w\d\s]"," ",lines,flags=re.UNICODE)
 	lines = re.sub("[0-9]"," ",lines,flags=re.UNICODE)
 	lines = lines.split()
 	lines = ' '.join(lines)
-	test_data_tf = tfTranform(lines)
+	test_data_tf = tfTranform([lines])
 	return predict_classification(X_data_tf,test_data_tf[0],5)
 def predict_1_file(file_path):
 	test = []
-	with open(file_path, 'r', encoding="utf-8") as f:
+	with open(file_path, 'r', encoding="utf-16") as f:
 		lines = f.readlines()
 		lines = ' '.join(lines)
 		lines = lines.lower()
@@ -72,7 +71,7 @@ def predict_folder(folder_path):
 		predict_test.append(predict_classification(X_data_tf,X_test_tf[row],5))
 	print(accuracy_metric(y_test,predict_test))
 	return predict_test
-# print(predict_1_file('new test - Copy (3)\Duong vao WTO\DVW_TN_T_ (188).txt'))
-# print(predict_by_text('Con chó'))
+print(predict_1_file('new test - Copy (3)\Am thuc\AT_NLD_T_ (391).txt'))
+print(predict_by_text("Chè sen trứng gà Tách trứng gà ra cho vào nước dấm đang sôi luộc chín, vớt ra thả vào nước chín nguội, cuối cùng vớt ra cho ráo nước, rồi cho vào chè sen.\nNguyên liệu \n100g hạt sen tươi \n6 trứng gà \n100g đường phèn, vani, dấm nuôi \nThực hiện \nHạt sen: Rửa sạch nấu mềm với 300ml nước, cho đường vào nấu tan cho vani vào tắt bếp. Đặt nồi nước nhỏ lên bếp cho 1/2 dấm nhỏ vào nấu sôi. \nTách trứng gà ra cho vào nước dấm đang sôi luộc chín, vớt ra thả vào nước chín nguội, cuối cùng vớt ra cho ráo nước, rồi cho vào chè sen. Dùng nóng hay lạnh đều ngon. "))
 
 	

@@ -5,7 +5,7 @@ import predict_1_file_or_folder as predict
 from flask_cors import CORS, cross_origin
 
 
-UPLOAD_FOLDER = "/home/thuongprovip/Downloads"
+UPLOAD_FOLDER = "predict"
 
 app = Flask(__name__)
 app.secret_key = "hello"

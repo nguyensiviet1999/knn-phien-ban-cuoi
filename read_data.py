@@ -27,13 +27,13 @@ def get_data(folder_path):
                 X.append(lines)
                 y.append(path)
     return X, y
-train_path = ('new train - Copy (3)')
-X_data, y_data = get_data(train_path)
-pickle.dump(X_data, open('X_data.pkl', 'wb'))
-pickle.dump(y_data, open('y_data.pkl', 'wb'))
+# train_path = ('new train - Copy (3)')
+# X_data, y_data = get_data(train_path)
+# pickle.dump(X_data, open('X_data.pkl', 'wb'))
+# pickle.dump(y_data, open('y_data.pkl', 'wb'))
 
-test_path = os.path.join('new test - Copy (3)')
-X_test, y_test = get_data(test_path)
+# test_path = os.path.join('new test - Copy (3)')
+# X_test, y_test = get_data(test_path)
 
-pickle.dump(X_test, open('X_test.pkl', 'wb'))
-pickle.dump(y_test, open('y_test.pkl', 'wb'))
+# pickle.dump(X_test, open('X_test.pkl', 'wb'))
+# pickle.dump(y_test, open('y_test.pkl', 'wb'))
